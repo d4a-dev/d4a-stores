@@ -1,1 +1,429 @@
-htmgmojop
+/* ===== ZOHO FORM CUSTOM STYLING ===== */
+
+/* Overall page background */
+body,
+html {
+    background-color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Header styling with custom color */
+.header,
+.site-header,
+header,
+.top-header,
+.navbar,
+[class*="header"],
+[id*="header"],
+.zstore-header {
+    background-color: #04A140 !important;
+    background-image: linear-gradient(135deg, #04A140, #038835) !important;
+    color: white !important;
+    padding: 15px 30px !important;
+    box-shadow: 0 4px 15px rgba(4, 161, 64, 0.2) !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Form container with black background */
+.form-container,
+.signup-form,
+.registration-form,
+form,
+.content-wrapper,
+.main-content,
+[class*="form"],
+[class*="signup"],
+[class*="register"] {
+    background-color: black !important;
+    color: white !important;
+    padding: 40px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+    margin: 20px auto !important;
+    position: relative !important;
+    max-width: 800px !important;
+}
+
+/* Add logos to form container */
+.form-container::before,
+.signup-form::before,
+.registration-form::before,
+form::before {
+    content: '';
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    width: 120px !important;
+    height: 60px !important;
+    background-image: url('https://demo.stackiz.in/d4a/logo-colour.svg') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    z-index: 100 !important;
+    transition: all 0.3s ease !important;
+}
+
+.form-container::after,
+.signup-form::after,
+.registration-form::after,
+form::after {
+    content: '';
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 120px !important;
+    height: 60px !important;
+    background-image: url('https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    z-index: 100 !important;
+}
+
+/* Hover effect for left logo */
+.form-container:hover::before,
+.signup-form:hover::before,
+.registration-form:hover::before,
+form:hover::before {
+    background-image: url('https://demo.stackiz.in/d4a/logo.svg') !important;
+}
+
+/* Form title and headings */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px !important;
+    margin-top: 80px !important; /* Space for logos */
+    text-align: center !important;
+}
+
+h1 { font-size: 2.2rem !important; }
+h2 { font-size: 1.8rem !important; }
+h3 { font-size: 1.5rem !important; }
+
+/* Form labels */
+label,
+.form-label,
+.field-label {
+    color: #e0e0e0 !important;
+    font-weight: 500 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+}
+
+/* Form inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea,
+.form-control,
+.input-field {
+    background-color: #2a2a2a !important;
+    border: 2px solid #404040 !important;
+    border-radius: 8px !important;
+    color: white !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Input focus states */
+input:focus,
+select:focus,
+textarea:focus,
+.form-control:focus {
+    border-color: #04A140 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.2) !important;
+    background-color: #1a1a1a !important;
+}
+
+/* Placeholder text */
+input::placeholder,
+textarea::placeholder {
+    color: #888 !important;
+}
+
+/* Select dropdown styling */
+select {
+    cursor: pointer !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 16px !important;
+}
+
+/* Submit button and signup button with custom color */
+input[type="submit"],
+input[type="button"],
+button,
+.btn,
+.button,
+.submit-btn,
+.signup-btn,
+[class*="submit"],
+[class*="signup"] {
+    background-color: #04A140 !important;
+    background-image: linear-gradient(135deg, #04A140, #038835) !important;
+    border: 2px solid #04A140 !important;
+    color: white !important;
+    padding: 14px 28px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Button hover effects */
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover,
+.btn:hover,
+.button:hover,
+.submit-btn:hover,
+.signup-btn:hover {
+    background-color: #038835 !important;
+    background-image: linear-gradient(135deg, #038835, #026b2a) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(4, 161, 64, 0.4) !important;
+}
+
+/* Button active state */
+button:active,
+.btn:active {
+    transform: translateY(0) !important;
+}
+
+/* Links in form */
+a {
+    color: #04A140 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+a:hover {
+    color: #66d196 !important;
+    text-decoration: underline !important;
+}
+
+/* Error messages */
+.error,
+.error-message,
+[class*="error"] {
+    color: #ff6b6b !important;
+    background-color: rgba(255, 107, 107, 0.1) !important;
+    padding: 10px !important;
+    border-radius: 6px !important;
+    border-left: 4px solid #ff6b6b !important;
+    margin-bottom: 15px !important;
+}
+
+/* Success messages */
+.success,
+.success-message,
+[class*="success"] {
+    color: #04A140 !important;
+    background-color: rgba(4, 161, 64, 0.1) !important;
+    padding: 10px !important;
+    border-radius: 6px !important;
+    border-left: 4px solid #04A140 !important;
+    margin-bottom: 15px !important;
+}
+
+/* Checkboxes and radio buttons */
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto !important;
+    margin-right: 8px !important;
+    accent-color: #04A140 !important;
+}
+
+/* Form sections and fieldsets */
+fieldset {
+    border: 1px solid #404040 !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    background-color: rgba(42, 42, 42, 0.5) !important;
+}
+
+legend {
+    color: #04A140 !important;
+    font-weight: 600 !important;
+    padding: 0 10px !important;
+}
+
+/* Form grid layout */
+.form-row {
+    display: flex !important;
+    gap: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.form-col {
+    flex: 1 !important;
+}
+
+/* Progress indicators */
+.progress-bar {
+    background-color: #404040 !important;
+    height: 4px !important;
+    border-radius: 2px !important;
+    overflow: hidden !important;
+    margin-bottom: 20px !important;
+}
+
+.progress-fill {
+    background-color: #04A140 !important;
+    height: 100% !important;
+    transition: width 0.3s ease !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-container,
+    .signup-form,
+    .registration-form,
+    form {
+        margin: 10px !important;
+        padding: 30px 20px !important;
+    }
+    
+    .form-container::before,
+    .signup-form::before,
+    .registration-form::before,
+    form::before,
+    .form-container::after,
+    .signup-form::after,
+    .registration-form::after,
+    form::after {
+        width: 80px !important;
+        height: 40px !important;
+        top: 10px !important;
+    }
+    
+    .form-container::before,
+    .signup-form::before,
+    .registration-form::before,
+    form::before {
+        left: 10px !important;
+    }
+    
+    .form-container::after,
+    .signup-form::after,
+    .registration-form::after,
+    form::after {
+        right: 10px !important;
+    }
+    
+    h1, h2, h3 {
+        margin-top: 60px !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .form-row {
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+}
+
+/* Loading animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading::after {
+    content: '' !important;
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 50% !important;
+    border-top-color: transparent !important;
+    animation: spin 1s ease-in-out infinite !important;
+    margin-left: 10px !important;
+}
+
+/* Smooth animations */
+* {
+    transition: all 0.3s ease !important;
+}
+
+/* Custom scrollbar for form */
+.form-container::-webkit-scrollbar,
+form::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.form-container::-webkit-scrollbar-track,
+form::-webkit-scrollbar-track {
+    background: #2a2a2a !important;
+}
+
+.form-container::-webkit-scrollbar-thumb,
+form::-webkit-scrollbar-thumb {
+    background: #04A140 !important;
+    border-radius: 4px !important;
+}
+
+.form-container::-webkit-scrollbar-thumb:hover,
+form::-webkit-scrollbar-thumb:hover {
+    background: #038835 !important;
+}
+
+/* Additional logo positioning for specific containers */
+.container::before,
+.main-container::before,
+.content::before,
+[class*="container"]::before {
+    content: '';
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    width: 120px !important;
+    height: 60px !important;
+    background-image: url('https://demo.stackiz.in/d4a/logo-colour.svg') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    z-index: 100 !important;
+    transition: all 0.3s ease !important;
+}
+
+.container::after,
+.main-container::after,
+.content::after,
+[class*="container"]::after {
+    content: '';
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 120px !important;
+    height: 60px !important;
+    background-image: url('https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    z-index: 100 !important;
+}
+
+.container:hover::before,
+.main-container:hover::before,
+.content:hover::before,
+[class*="container"]:hover::before {
+    background-image: url('https://demo.stackiz.in/d4a/logo.svg') !important;
+}
