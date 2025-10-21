@@ -1,0 +1,530 @@
+/* =========================================
+   Zoho Forms Custom Theme Transformation
+   Complete styling to match design specs
+   ========================================= */
+
+/* CSS Variables */
+:root {
+  --primary: #04A140;
+  --primary-2: #026B2A;
+  --text: #ffffff;
+  --text-muted: #e2e8f0;
+  --muted: #a0aec0;
+  --field-border: #374151;
+  --field-border-hover: #4b5563;
+  --danger: #e53e3e;
+  --bg-dark: #000000;
+  --bg-card: #1a1a1a;
+  --bg-input: #2a2a2a;
+}
+
+/* Body Styling */
+body.standardForm {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  min-height: 100vh;
+  background: #ffffff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Main Wrapper */
+#mainWrapper.mainWrapper {
+  width: 100%;
+  max-width: 540px;
+  background: var(--bg-dark) !important;
+  border: 1px solid var(--primary) !important;
+  border-radius: 20px !important;
+  padding: 42px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+  margin: 20px auto;
+  position: relative;
+}
+
+/* Header Styling */
+.zfFormHeader.formHeaderInside {
+  margin-bottom: 32px !important;
+  text-align: center;
+}
+
+.zfFormHeader h2 {
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  margin: 0 0 22px !important;
+  color: transparent !important;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+/* Hide default logo */
+.hdrLogoImgDiv {
+  display: none !important;
+}
+
+/* Add D4A Logo and Zoho Partner Logo */
+#mainWrapper::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: 60px;
+  margin: 0 auto 10px;
+  background: none;
+}
+
+#mainWrapper::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  height: 40px;
+  background-image:
+    url("https://demo.stackiz.in/d4a/logo.svg"),
+    url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;
+  background-size: auto 40px, auto 40px;
+  z-index: 1;
+  transition: background-image 0.3s ease;
+  pointer-events: none;
+}
+
+#mainWrapper:hover::after {
+  background-image:
+    url("https://demo.stackiz.in/d4a/logo-colour.svg"),
+    url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png");
+  background-size: auto 40px, auto 40px;
+}
+
+/* Adjust form positioning for logos */
+#formContainer {
+  padding-top: 68px;
+}
+
+/* Field Wrapper Spacing */
+.fieldWrapper {
+  margin-bottom: 20px !important;
+}
+
+/* Labels */
+.fieldlabel {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text) !important;
+}
+
+.fieldLabelTxt {
+  color: var(--text) !important;
+}
+
+/* Input Fields - All Types */
+input.fieldtext,
+select.select2-hidden-accessible + .select2-container .select2-selection,
+textarea.fieldtext {
+  width: 100% !important;
+  padding: 14px 16px !important;
+  border: 2px solid var(--field-border) !important;
+  border-radius: 12px !important;
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  background: var(--bg-card) !important;
+  color: var(--text) !important;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .15s ease, background .2s ease !important;
+  box-sizing: border-box !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* Placeholder Styling */
+input.fieldtext::placeholder,
+textarea.fieldtext::placeholder {
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+}
+
+/* Input Hover State */
+input.fieldtext:hover:not(:focus),
+select:hover:not(:focus),
+textarea.fieldtext:hover:not(:focus) {
+  border-color: var(--field-border-hover) !important;
+  background: var(--bg-input) !important;
+}
+
+/* Input Focus State */
+input.fieldtext:focus,
+select:focus,
+textarea.fieldtext:focus,
+.select2-container--focus .select2-selection {
+  outline: none !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.15) !important;
+  transform: translateY(-1px);
+  animation: focusGlow .25s ease-in-out;
+  background: var(--bg-card) !important;
+}
+
+@keyframes focusGlow {
+  from { box-shadow: 0 0 0 0 rgba(4, 161, 64, 0.35); }
+  to { box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.15); }
+}
+
+/* Name Field Components */
+.zfNameContainer .nameCompLabelWrapper {
+  margin-bottom: 16px;
+}
+
+.nameFieldSpaceing {
+  margin-left: 0 !important;
+  margin-top: 16px !important;
+}
+
+.formSubInfoText {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-muted) !important;
+}
+
+/* Dropdown Styling (Select2) */
+.select2-container--default .select2-selection--single {
+  background: var(--bg-card) !important;
+  border: 2px solid var(--field-border) !important;
+  border-radius: 12px !important;
+  height: auto !important;
+  min-height: 54px !important;
+  padding: 14px 50px 14px 16px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: var(--text) !important;
+  line-height: 1.4 !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  color: var(--muted) !important;
+}
+
+/* Dropdown Arrow */
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100% !important;
+  right: 14px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: var(--text) transparent transparent transparent !important;
+  border-width: 6px 5px 0 5px !important;
+  margin-top: -3px !important;
+}
+
+/* Dropdown Options */
+.select2-dropdown {
+  background: var(--bg-card) !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 12px !important;
+}
+
+.select2-results__option {
+  background: var(--bg-card) !important;
+  color: var(--text) !important;
+  padding: 12px 16px !important;
+  text-align: center !important;
+}
+
+.select2-results__option--highlighted {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+}
+
+/* Terms & Conditions Checkbox */
+.termsConditionsCont {
+  margin: 20px 0 !important;
+}
+
+.termsAccept.customCheckBox {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+/* Custom Checkbox Styling */
+input[type="checkbox"].checkBoxType {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  appearance: none !important;
+  background: var(--bg-input) !important;
+  border: 2px solid var(--field-border) !important;
+  border-radius: 4px !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+
+/* Checkmark */
+input[type="checkbox"].checkBoxType::after {
+  content: "✓" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+input[type="checkbox"].checkBoxType:checked::after {
+  opacity: 1 !important;
+}
+
+input[type="checkbox"].checkBoxType:checked {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+input[type="checkbox"].checkBoxType:hover {
+  border-color: var(--primary) !important;
+  background: var(--bg-input) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Hide default checkbox label styling */
+.cusChoiceLabel {
+  display: none !important;
+}
+
+/* Terms text */
+.descFld {
+  font-size: 14px !important;
+  color: var(--text-muted) !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  flex: 1 !important;
+}
+
+.descFld a {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.descFld a:hover {
+  text-decoration: underline !important;
+}
+
+/* Submit Button */
+button.zfbtnSubmit.btnElem {
+  width: 100% !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  padding: 16px 24px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%) !important;
+  transition: transform .15s ease, box-shadow .2s ease !important;
+  margin-top: 24px !important;
+}
+
+button.zfbtnSubmit.btnElem:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 24px rgba(4, 161, 64, 0.30) !important;
+}
+
+button.zfbtnSubmit.btnElem:active {
+  transform: translateY(0) !important;
+}
+
+button.zfbtnSubmit.btnElem em {
+  font-style: normal !important;
+}
+
+/* Error Messages */
+.zfErrorDiv {
+  color: var(--danger) !important;
+  font-size: 12px !important;
+  margin-top: 6px !important;
+  display: block !important;
+}
+
+input.fieldtext.error,
+select.error,
+.select2-container--error .select2-selection {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.12) !important;
+}
+
+/* Clear Input Button */
+.inputClearDiv {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.fieldtypeText:hover .inputClearDiv {
+  opacity: 1;
+}
+
+.inputClearDiv:hover {
+  color: var(--primary);
+}
+
+/* Icons */
+.icon {
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+}
+
+/* Phone Number Field */
+.zfFldVerifCont {
+  position: relative;
+  width: 100%;
+}
+
+/* Hide field icons by default */
+.icon-Name,
+.icon-Email,
+.icon-Phone,
+.icon-SingleLine {
+  display: none !important;
+}
+
+/* Focus Border Effect */
+.focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+input.fieldtext:focus ~ .focus-border {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #mainWrapper.mainWrapper {
+    padding: 35px 22px !important;
+    margin: 20px 10px;
+    max-width: 100%;
+  }
+  
+  .zfFormHeader h2 {
+    font-size: 24px !important;
+  }
+  
+  #mainWrapper::after {
+    top: 12px;
+    left: 15px;
+    right: 15px;
+    height: 35px;
+    background-size: auto 35px, auto 35px;
+  }
+  
+  #formContainer {
+    padding-top: 55px;
+  }
+  
+  input[type="checkbox"].checkBoxType {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #mainWrapper.mainWrapper {
+    padding: 30px 18px !important;
+  }
+  
+  input.fieldtext,
+  select,
+  textarea.fieldtext {
+    font-size: 14px !important;
+    padding: 12px 14px !important;
+  }
+  
+  button.zfbtnSubmit.btnElem {
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* Loading States */
+.loaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader--dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin: 0 5px;
+  animation: loading 1.5s infinite;
+}
+
+.loader--dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader--dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.loader--dot:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes loading {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Accessibility - Focus Visible */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+.checkBoxType:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.25) !important;
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
