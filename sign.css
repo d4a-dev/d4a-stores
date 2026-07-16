@@ -1,0 +1,367 @@
+/* =========================================
+   Zoho Reseller Sign-Up — Custom Theme
+   Complete Design Package
+   ========================================= */
+
+/* ===== CSS VARIABLES ===== */
+body.mp0 {
+  --primary: #04A140;
+  --primary-2: #026B2A;
+  --text: #ffffff;
+  --text-muted: #e2e8f0;
+  --muted: #a0aec0;
+  --field-border: #374151;
+  --field-border-hover: #4b5563;
+  --danger: #e53e3e;
+}
+
+/* ===== TYPOGRAPHY & FONTS ===== */
+body.mp0 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title/Heading Font */
+body.mp0 .welcomeMessage {
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 22px;
+  color: transparent;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ===== FORM INPUTS & FIELDS ===== */
+body.mp0 .form-input,
+body.mp0 input.sgnemail,
+body.mp0 select.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--field-border);
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.2;
+  background: #1a1a1a;
+  color: var(--text);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .15s ease, background .2s ease;
+  appearance: none;
+  box-sizing: border-box !important;
+}
+
+/* Placeholder Styling */
+body.mp0 .form-input::placeholder { 
+  color: var(--muted); 
+  font-weight: 400; 
+}
+
+/* Input Hover State */
+body.mp0 .form-input:hover:not(:focus) {
+  border-color: var(--field-border-hover);
+  background: #2a2a2a;
+}
+
+/* Input Focus State */
+body.mp0 .form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.15);
+  transform: translateY(-1px);
+  animation: mp0-focusGlow .25s ease-in-out;
+}
+
+@keyframes mp0-focusGlow {
+  from { box-shadow: 0 0 0 0 rgba(4, 161, 64, 0.35); }
+  to   { box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.15); }
+}
+
+/* ===== SELECT DROPDOWNS ===== */
+body.mp0 .za-country-container-arrow select.form-input,
+body.mp0 .za-state-container-arrow select.form-input,
+body.mp0 select.form-input.countryCnt.za-country-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 18px;
+  padding-right: 50px !important;
+  padding-left: 16px !important;
+  cursor: pointer;
+  text-align: center !important;
+  text-align-last: center !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  min-height: 54px !important;
+  line-height: 1.4 !important;
+}
+
+body.mp0 select.form-input option { 
+  background: #1a1a1a !important;
+  color: var(--text) !important;
+  padding: 12px 16px !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+/* ===== CHECKBOX STYLING ===== */
+body.mp0 .za-tos-container input.za-tos[type="checkbox"] {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  margin: 0 8px 0 0 !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 10 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+  appearance: none !important;
+  background: #2a2a2a !important;
+  border: 2px solid var(--field-border) !important;
+  border-radius: 4px !important;
+  vertical-align: top !important;
+  flex-shrink: 0 !important;
+}
+
+/* Custom Checkmark */
+body.mp0 .za-tos-container input.za-tos[type="checkbox"]::after {
+  content: "✓" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+body.mp0 .za-tos-container input.za-tos[type="checkbox"]:checked::after {
+  opacity: 1 !important;
+}
+
+body.mp0 .za-tos-container input.za-tos[type="checkbox"]:checked {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+body.mp0 .za-tos-container input.za-tos[type="checkbox"]:hover {
+  border-color: var(--primary) !important;
+  background: #3a3a3a !important;
+  transform: scale(1.05) !important;
+}
+
+/* ===== BUTTONS ===== */
+body.mp0 .submit-btn.submitSignUp {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body.mp0 .submit-btn.submitSignUp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(4, 161, 64, 0.30);
+}
+
+body.mp0 .submit-btn.submitSignUp:active {
+  transform: translateY(0);
+}
+
+/* ===== CARD/CONTAINER ===== */
+body.mp0 {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+body.mp0 .login-box {
+  width: 100%;
+  max-width: 540px;
+  margin-top: 56px;
+  background: #000000;
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  padding: 42px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  position: relative;
+  padding-top: 68px;
+}
+
+/* ===== LOGOS ===== */
+html body.mp0 .login-box::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  height: 40px;
+  background-image:
+    url("https://demo.stackiz.in/d4a/logo.svg"),
+    url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;
+  background-size: auto 40px, auto 40px;
+  z-index: 1;
+  transition: background-image 0.3s ease;
+  pointer-events: none;
+}
+
+html body.mp0 .login-box:hover::after {
+  background-image:
+    url("https://demo.stackiz.in/d4a/logo-colour.svg"),
+    url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png");
+  background-size: auto 40px, auto 40px;
+}
+
+/* ===== COLORS & THEME ===== */
+/* Primary Green: #04A140 */
+/* Secondary Green: #026B2A */
+/* Background: #000000 (card), #ffffff (page) */
+/* Input Background: #1a1a1a */
+/* Border: #374151 */
+/* Text: #ffffff */
+/* Muted Text: #e2e8f0 */
+
+/* ===== LABEL STYLING ===== */
+body.mp0 .sign_agree,
+body.mp0 .news-signup {
+  font-size: 14px !important;
+  color: var(--text-muted) !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  flex: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.mp0 .sign_agree a,
+body.mp0 .news-signup a {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+body.mp0 .sign_agree a:hover,
+body.mp0 .news-signup a:hover { 
+  text-decoration: underline !important; 
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  body.mp0 .login-box {
+    padding: 35px 22px;
+    margin: 20px 10px;
+    margin-top: 78px;
+    max-width: 100%;
+  }
+  
+  body.mp0 .welcomeMessage { 
+    font-size: 24px; 
+  }
+}
+
+@media (max-width: 480px) {
+  html body.mp0 .login-box::after {
+    top: 12px;
+    left: 15px;
+    right: 15px;
+    height: 35px;
+    background-size: auto 35px, auto 35px;
+  }
+  
+  html body.mp0 .login-box {
+    padding-top: 55px;
+  }
+  
+  body.mp0 .za-tos-container input[type="checkbox"] {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes mp0-spin { 
+  to { transform: rotate(360deg); } 
+}
+
+/* ===== ERROR STATES ===== */
+body.mp0 .jqval-error,
+body.mp0 .error {
+  color: var(--danger);
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
+body.mp0 input.error,
+body.mp0 select.error,
+body.mp0 textarea.error {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 3px rgba(229,62,62,.12);
+}
+
+/* ===== FOCUS RINGS (Accessibility) ===== */
+body.mp0 .submit-btn:focus-visible,
+body.mp0 .signupbtn:focus-visible,
+body.mp0 .form-input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.25);
+}
+
+body.mp0 .za-tos-container input.za-tos[type="checkbox"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.3) !important;
+}
+
+/* ===== HIDE UNWANTED ELEMENTS ===== */
+html body.mp0 .mTop {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+}
+
+html body.mp0 img.serviceLogo {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+html body.mp0 .login-box > form > div > div[align="center"] {
+  display: none !important;
+}
+
+body.mp0 .za-newsletter-container,
+body.mp0 tr.za-newsletter-container {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+}
+
+body.mp0 .za-tos-container span#signup-termservice {
+  display: none !important;
+  visibility: hidden !important;
+}
