@@ -82,7 +82,6 @@ body.mp0 .fl  { float: left; }
 body.mp0 .disBlock { display: block; }
 body.mp0 .zs-ml34  { margin-left: 0; }
 
-/* Form fields */
 body.mp0 .form-input,
 body.mp0 input.sgnemail,
 body.mp0 select.form-input {
@@ -122,7 +121,6 @@ body.mp0 .form-input:focus {
 body.mp0 .companyNameDiv { margin-bottom: 4px; }
 body.mp0 .sgfrm { margin: 0; }
 
-/* Password toggle */
 body.mp0 .za-password-container { position: relative; }
 body.mp0 #show-password {
   position: absolute;
@@ -140,7 +138,6 @@ body.mp0 #show-password {
 }
 body.mp0 #show-password:hover { opacity: .85; }
 
-/* Country / State selects with custom chevron */
 body.mp0 .za-country-container-arrow select.form-input,
 body.mp0 .za-state-container-arrow select.form-input,
 body.mp0 select.form-input.countryCnt.za-country-select,
@@ -161,17 +158,12 @@ body.mp0 select.form-input.countryCnt.za-state-select {
   line-height: 1.4 !important;
 }
 
-/* Centered option text (from File 1) */
 body.mp0 select.form-input option {
   background: #1a1a1a !important;
   color: var(--text) !important;
   padding: 12px 16px !important;
-  text-align: center !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
 }
 
-/* TOS container */
 body.mp0 .za-tos-container {
   display: flex !important;
   align-items: flex-start !important;
@@ -179,7 +171,6 @@ body.mp0 .za-tos-container {
   margin: 16px 0 8px !important;
 }
 
-/* Hide newsletter */
 body.mp0 .za-newsletter-container,
 body.mp0 tr.za-newsletter-container {
   display: none !important;
@@ -191,7 +182,6 @@ body.mp0 tr.za-newsletter-container {
   padding: 0 !important;
 }
 
-/* Custom checkbox */
 body.mp0 .za-tos-container input.za-tos[type="checkbox"] {
   width: 20px !important;
   height: 20px !important;
@@ -228,31 +218,16 @@ body.mp0 .za-tos-container input.za-tos[type="checkbox"]::after {
 }
 
 body.mp0 .za-tos-container input.za-tos[type="checkbox"]:checked::after { opacity: 1 !important; }
-
 body.mp0 .za-tos-container input.za-tos[type="checkbox"]:checked {
   background: var(--primary) !important;
   border-color: var(--primary) !important;
 }
 
-/* Checkbox hover + focus states (from File 1) */
-body.mp0 .za-tos-container input.za-tos[type="checkbox"]:hover {
-  border-color: var(--primary) !important;
-  background: #3a3a3a !important;
-  transform: scale(1.05) !important;
-}
-
-body.mp0 .za-tos-container input.za-tos[type="checkbox"]:focus {
-  outline: none !important;
-  box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.3) !important;
-}
-
-/* Hide Zoho's custom checkbox span */
 body.mp0 .za-tos-container span#signup-termservice {
   display: none !important;
   visibility: hidden !important;
 }
 
-/* TOS label */
 body.mp0 .za-tos-container label.sign_agree,
 body.mp0 .sign_agree {
   display: flex !important;
@@ -268,29 +243,10 @@ body.mp0 .sign_agree {
   flex: 1 !important;
 }
 
-body.mp0 .sign_agree a,
-body.mp0 .news-signup a {
+body.mp0 .sign_agree a {
   color: var(--primary) !important;
   text-decoration: none !important;
   font-weight: 600 !important;
-}
-
-/* Link hover (from File 1) */
-body.mp0 .sign_agree a:hover,
-body.mp0 .news-signup a:hover {
-  text-decoration: underline !important;
-}
-
-/* Newsletter label styles (from File 1) */
-body.mp0 .news-signup {
-  font-size: 14px !important;
-  color: var(--text-muted) !important;
-  line-height: 1.5 !important;
-  cursor: pointer !important;
-  user-select: none !important;
-  flex: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 body.mp0 .za-tos-container.fontR {
@@ -299,7 +255,6 @@ body.mp0 .za-tos-container.fontR {
   width: 100% !important;
 }
 
-/* Submit button */
 body.mp0 .submit-btn.submitSignUp {
   width: 100%;
   border: 0;
@@ -332,7 +287,6 @@ body.mp0 .submitSignUp.diableBtnSignup {
   transform: none;
 }
 
-/* Loading spinner */
 body.mp0 #LoadingImage.successLoading {
   width: 20px;
   height: 20px;
@@ -352,7 +306,6 @@ body.mp0 .signupArea {
   gap: 10px;
 }
 
-/* OTP section */
 body.mp0 .signupotpcontainer {
   margin-top: 14px;
   border-top: 1px dashed rgba(255,255,255,.1);
@@ -371,13 +324,8 @@ body.mp0 .za-submitbtn-otp .signupbtn {
   color: #fff;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
   cursor: pointer;
-  transition: transform .15s ease, box-shadow .2s ease; /* from File 1 */
 }
 
-/* OTP button hover (from File 1) */
-body.mp0 .za-submitbtn-otp .signupbtn:hover { transform: translateY(-1px); }
-
-/* Error states */
 body.mp0 .jqval-error,
 body.mp0 .error { color: var(--danger); font-size: 12px; margin-top: 6px; display: block; }
 
@@ -392,21 +340,7 @@ body.mp0 .end_field_msg_samedomain { margin-top: 6px; }
 body.mp0 .signUp-tdAlignLeft { text-align: left; }
 body.mp0 .za-refresh-captcha  { border: 0; }
 
-/* Focus ring for keyboard nav */
-body.mp0 .submit-btn:focus-visible,
-body.mp0 .signupbtn:focus-visible,
-body.mp0 .form-input:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(4,161,64,0.25);
-}
-
-/* Responsive — 768px */
 @media (max-width: 768px) {
-  /* mTop mobile tweak (from File 1) */
-  body.mp0 .mTop {
-    font-size: 14px;
-    padding: 8px 14px;
-  }
   body.mp0 .login-box {
     padding: 35px 22px;
     margin: 20px 10px;
@@ -414,6 +348,13 @@ body.mp0 .form-input:focus-visible {
     max-width: 100%;
   }
   body.mp0 .welcomeMessage { font-size: 24px; }
+}
+
+body.mp0 .submit-btn:focus-visible,
+body.mp0 .signupbtn:focus-visible,
+body.mp0 .form-input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(4,161,64,0.25);
 }
 
 /* ═══════════════════════════════════════════════
@@ -547,7 +488,6 @@ html body.mp0 .submit-btn.submitSignUp:hover {
 html body.mp0 .btnSignup,
 html body.mp0 .signupArea { color: #ffffff !important; }
 
-/* Responsive — 480px */
 @media (max-width: 480px) {
   html body.mp0 .login-box {
     padding-top: 55px !important;
@@ -558,12 +498,5 @@ html body.mp0 .signupArea { color: #ffffff !important; }
     right: 15px !important;
     height: 35px !important;
     background-size: auto 35px, auto 35px !important;
-  }
-  /* Larger checkbox on mobile (from File 1) */
-  body.mp0 .za-tos-container input[type="checkbox"] {
-    width: 24px !important;
-    height: 24px !important;
-    min-width: 24px !important;
-    min-height: 24px !important;
   }
 }
