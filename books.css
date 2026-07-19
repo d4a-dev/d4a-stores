@@ -1,0 +1,502 @@
+/* =========================================
+   Zoho Reseller Sign-Up — Custom Theme
+   Scope: ONLY this page (body.mp0)
+   ========================================= */
+
+body.mp0 {
+  --primary: #04A140;
+  --primary-2: #026B2A;
+  --text: #ffffff;
+  --text-muted: #e2e8f0;
+  --muted: #a0aec0;
+  --field-border: #374151;
+  --field-border-hover: #4b5563;
+  --danger: #e53e3e;
+
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+body.mp0 .mTop {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.95);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  color: #4a5568;
+  box-shadow: 0 4px 15px rgba(0,0,0,.10);
+  backdrop-filter: blur(8px);
+  z-index: 3;
+}
+
+body.mp0 .login-box {
+  width: 100%;
+  max-width: 540px;
+  margin-top: 56px;
+  background: #000000;
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  padding: 42px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+}
+
+body.mp0 .serviceLogo {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+body.mp0 .signupTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+body.mp0 .signupTable td { padding: 8px 0; }
+
+body.mp0 .welcomeMessage {
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 22px;
+  color: transparent;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+body.mp0 .poRel,
+body.mp0 .rel { position: relative; }
+body.mp0 .fr  { float: right; }
+body.mp0 .fl  { float: left; }
+body.mp0 .disBlock { display: block; }
+body.mp0 .zs-ml34  { margin-left: 0; }
+
+body.mp0 .form-input,
+body.mp0 input.sgnemail,
+body.mp0 select.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--field-border);
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.2;
+  background: #1a1a1a;
+  color: var(--text);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .15s ease, background .2s ease;
+  appearance: none;
+  box-sizing: border-box !important;
+}
+
+body.mp0 .form-input::placeholder { color: var(--muted); font-weight: 400; }
+
+body.mp0 .form-input:hover:not(:focus) {
+  border-color: var(--field-border-hover);
+  background: #2a2a2a;
+}
+
+body.mp0 .form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(4,161,64,0.15);
+  transform: translateY(-1px);
+  animation: mp0-focusGlow .25s ease-in-out;
+}
+
+@keyframes mp0-focusGlow {
+  from { box-shadow: 0 0 0 0   rgba(4,161,64,0.35); }
+  to   { box-shadow: 0 0 0 3px rgba(4,161,64,0.15); }
+}
+
+body.mp0 .companyNameDiv { margin-bottom: 4px; }
+body.mp0 .sgfrm { margin: 0; }
+
+body.mp0 .za-password-container { position: relative; }
+body.mp0 #show-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  user-select: none;
+}
+body.mp0 #show-password:hover { opacity: .85; }
+
+body.mp0 .za-country-container-arrow select.form-input,
+body.mp0 .za-state-container-arrow select.form-input,
+body.mp0 select.form-input.countryCnt.za-country-select,
+body.mp0 select.form-input.countryCnt.za-state-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 18px;
+  padding-right: 50px !important;
+  padding-left: 16px !important;
+  cursor: pointer;
+  text-align: center !important;
+  text-align-last: center !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  height: auto !important;
+  min-height: 54px !important;
+  line-height: 1.4 !important;
+}
+
+body.mp0 select.form-input option {
+  background: #1a1a1a !important;
+  color: var(--text) !important;
+  padding: 12px 16px !important;
+}
+
+body.mp0 .za-tos-container {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0 !important;
+  margin: 16px 0 8px !important;
+}
+
+body.mp0 .za-newsletter-container,
+body.mp0 tr.za-newsletter-container {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.mp0 .za-tos-container input.za-tos[type="checkbox"] {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  margin: 0 8px 0 0 !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 10 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: #2a2a2a !important;
+  border: 2px solid var(--field-border) !important;
+  border-radius: 4px !important;
+  vertical-align: top !important;
+  flex-shrink: 0 !important;
+}
+
+body.mp0 .za-tos-container input.za-tos[type="checkbox"]::after {
+  content: "✓" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%,-50%) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+body.mp0 .za-tos-container input.za-tos[type="checkbox"]:checked::after { opacity: 1 !important; }
+body.mp0 .za-tos-container input.za-tos[type="checkbox"]:checked {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+body.mp0 .za-tos-container span#signup-termservice {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body.mp0 .za-tos-container label.sign_agree,
+body.mp0 .sign_agree {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  color: var(--text-muted) !important;
+  line-height: 1.5 !important;
+  user-select: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 1 !important;
+}
+
+body.mp0 .sign_agree a {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+body.mp0 .za-tos-container.fontR {
+  display: flex !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+}
+
+body.mp0 .submit-btn.submitSignUp {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body.mp0 .submit-btn.submitSignUp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(4,161,64,0.30);
+}
+
+body.mp0 .submit-btn.submitSignUp:active { transform: translateY(0); }
+
+body.mp0 .submitSignUp.diableBtnSignup {
+  opacity: .7;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+body.mp0 #LoadingImage.successLoading {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  margin-left: 10px;
+  display: none;
+  animation: mp0-spin 1s linear infinite;
+}
+@keyframes mp0-spin { to { transform: rotate(360deg); } }
+
+body.mp0 .signupArea {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+body.mp0 .signupotpcontainer {
+  margin-top: 14px;
+  border-top: 1px dashed rgba(255,255,255,.1);
+  padding-top: 14px;
+}
+body.mp0 .verifytitle  { font-weight: 800; color: var(--text); margin-bottom: 6px; }
+body.mp0 .verifyheader { color: var(--text-muted); font-size: 14px; margin-bottom: 10px; }
+body.mp0 .za-otp-container dd input.form-input { letter-spacing: 2px; }
+body.mp0 .resendotp { margin-left: 10px; font-size: 13px; font-weight: 700; color: var(--primary); cursor: pointer; }
+
+body.mp0 .za-submitbtn-otp .signupbtn {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  cursor: pointer;
+}
+
+body.mp0 .jqval-error,
+body.mp0 .error { color: var(--danger); font-size: 12px; margin-top: 6px; display: block; }
+
+body.mp0 input.error,
+body.mp0 select.error,
+body.mp0 textarea.error { border-color: var(--danger) !important; box-shadow: 0 0 0 3px rgba(229,62,62,.12); }
+
+body.mp0 .end_field_msg,
+body.mp0 .end_field_msg_sameemail,
+body.mp0 .end_field_msg_samedomain { margin-top: 6px; }
+
+body.mp0 .signUp-tdAlignLeft { text-align: left; }
+body.mp0 .za-refresh-captcha  { border: 0; }
+
+@media (max-width: 768px) {
+  body.mp0 .login-box {
+    padding: 35px 22px;
+    margin: 20px 10px;
+    margin-top: 78px;
+    max-width: 100%;
+  }
+  body.mp0 .welcomeMessage { font-size: 24px; }
+}
+
+body.mp0 .submit-btn:focus-visible,
+body.mp0 .signupbtn:focus-visible,
+body.mp0 .form-input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(4,161,64,0.25);
+}
+
+/* ═══════════════════════════════════════════════
+   HIGH-SPECIFICITY OVERRIDES
+   These win against signup-new.min.css and
+   Zoho's dynamically injected register/script CSS
+   ═══════════════════════════════════════════════ */
+
+html body.mp0 .mTop {
+  display:     none !important;
+  visibility:  hidden !important;
+  opacity:     0 !important;
+  height:      0 !important;
+  margin:      0 !important;
+  padding:     0 !important;
+}
+
+html body.mp0 img.serviceLogo {
+  display:    none !important;
+  visibility: hidden !important;
+}
+
+html body.mp0 .login-box > form > div > div[align="center"] {
+  display: none !important;
+}
+
+html body.mp0 .welcomeMessage::before { content: none !important; }
+
+html body.mp0 .login-box {
+  position:        relative !important;
+  width:           100% !important;
+  max-width:       540px !important;
+  margin-top:      56px !important;
+  background:      #000000 !important;
+  border:          1px solid #04A140 !important;
+  border-radius:   20px !important;
+  padding:         42px !important;
+  padding-top:     68px !important;
+  box-shadow:      0 20px 40px rgba(0,0,0,0.15) !important;
+}
+
+html body.mp0 .login-box::after {
+  content:             "" !important;
+  position:            absolute !important;
+  top:                 16px !important;
+  left:                20px !important;
+  right:               20px !important;
+  height:              40px !important;
+  background-image:    url("https://demo.stackiz.in/d4a/logo.svg"), url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png") !important;
+  background-repeat:   no-repeat, no-repeat !important;
+  background-position: left top, right top !important;
+  background-size:     auto 40px, auto 40px !important;
+  z-index:             999 !important;
+  pointer-events:      none !important;
+}
+
+html body.mp0 .login-box:hover::after {
+  background-image: url("https://demo.stackiz.in/d4a/logo-colour.svg"), url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png") !important;
+}
+
+html body.mp0 .welcomeMessage {
+  font-size:               28px !important;
+  font-weight:             800 !important;
+  text-align:              center !important;
+  margin:                  0 0 22px !important;
+  color:                   transparent !important;
+  background:              linear-gradient(135deg, #04A140, #026B2A) !important;
+  -webkit-background-clip: text !important;
+  background-clip:         text !important;
+}
+
+html body.mp0 .form-input,
+html body.mp0 input.sgnemail,
+html body.mp0 input.sgnemail.form-input,
+html body.mp0 input.form-input {
+  background:    #1a1a1a !important;
+  color:         #ffffff !important;
+  border:        2px solid #374151 !important;
+  border-radius: 12px !important;
+  padding:       14px 16px !important;
+  font-size:     16px !important;
+  box-sizing:    border-box !important;
+}
+
+html body.mp0 .form-input:focus,
+html body.mp0 input.sgnemail:focus {
+  border-color: #04A140 !important;
+  background:   #1a1a1a !important;
+  color:        #ffffff !important;
+  outline:      none !important;
+  box-shadow:   0 0 0 3px rgba(4,161,64,0.15) !important;
+}
+
+html body.mp0 select.form-input,
+html body.mp0 select.form-input.countryCnt {
+  background-color:    #1a1a1a !important;
+  background-image:    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+  background-repeat:   no-repeat !important;
+  background-position: right 14px center !important;
+  background-size:     18px !important;
+  color:               #ffffff !important;
+  border:              2px solid #374151 !important;
+  border-radius:       12px !important;
+  min-height:          54px !important;
+  padding:             14px 50px 14px 16px !important;
+}
+
+html body.mp0 button.submit-btn.submitSignUp,
+html body.mp0 .submit-btn.submitSignUp {
+  background:    linear-gradient(135deg, #04A140 0%, #026B2A 100%) !important;
+  color:         #ffffff !important;
+  border:        none !important;
+  border-radius: 12px !important;
+  padding:       16px 24px !important;
+  font-size:     16px !important;
+  font-weight:   700 !important;
+  width:         100% !important;
+  cursor:        pointer !important;
+  box-shadow:    none !important;
+  text-shadow:   none !important;
+}
+
+html body.mp0 button.submit-btn.submitSignUp:hover,
+html body.mp0 .submit-btn.submitSignUp:hover {
+  background:  linear-gradient(135deg, #04A140 0%, #026B2A 100%) !important;
+  color:       #ffffff !important;
+  transform:   translateY(-2px) !important;
+  box-shadow:  0 10px 24px rgba(4,161,64,0.30) !important;
+}
+
+html body.mp0 .btnSignup,
+html body.mp0 .signupArea { color: #ffffff !important; }
+
+@media (max-width: 480px) {
+  html body.mp0 .login-box {
+    padding-top: 55px !important;
+  }
+  html body.mp0 .login-box::after {
+    top: 12px !important;
+    left: 15px !important;
+    right: 15px !important;
+    height: 35px !important;
+    background-size: auto 35px, auto 35px !important;
+  }
+}
