@@ -1,11 +1,39 @@
 /* =========================================
-   Zoho Reseller Sign-Up — Theme REMOVED
-   All custom styling has been cleared so the
-   form falls back to Zoho's native, default UI
-   (native logo, native CAPTCHA rendering, native
-   colors/fonts/spacing).
- 
-   If you want the dark green theme back later,
-   just restore the previous stylesheet version.
+   Zoho Reseller Sign-Up — Minimal Layout Fix
+   (No color theme, no dark background, no
+   custom branding — this ONLY constrains the
+   oversized/stretched logo image and keeps the
+   form at a readable width. Everything else
+   remains Zoho's native default styling.)
    ========================================= */
- 
+
+/* Constrain the logo so it can't render at native
+   full image resolution (this was the stretching
+   issue in your last screenshot) */
+body.mp0 .login-box img,
+body.mp0 img.serviceLogo,
+body.mp0 form img {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+/* Keep the whole sign-up block from spanning the
+   full page width / native image width */
+body.mp0 .login-box {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+/* Make sure text inputs and dropdowns don't
+   inherit any stray native width from the image
+   above them */
+body.mp0 .form-input,
+body.mp0 input.sgnemail,
+body.mp0 select.form-input {
+  width: 100%;
+  box-sizing: border-box;
+}
