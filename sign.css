@@ -1,6 +1,7 @@
 /* =========================================
    Zoho Reseller Sign-Up — Custom Theme
    Complete Design Package
+   (Updated: fixed CAPTCHA image not showing)
    ========================================= */
 
 /* ===== CSS VARIABLES ===== */
@@ -349,7 +350,12 @@ html body.mp0 img.serviceLogo {
   visibility: hidden !important;
 }
 
-html body.mp0 .login-box > form > div > div[align="center"] {
+/* FIX: the old rule below hid EVERY div[align="center"] inside the form,
+   which also hit the CAPTCHA image wrapper (Zoho wraps the CAPTCHA <img>
+   in a div[align="center"] too). We now only hide align="center" divs
+   that do NOT contain an image, so the CAPTCHA stays visible while any
+   other unwanted centered content is still hidden. */
+html body.mp0 .login-box > form > div > div[align="center"]:not(:has(img)) {
   display: none !important;
 }
 
@@ -364,4 +370,42 @@ body.mp0 tr.za-newsletter-container {
 body.mp0 .za-tos-container span#signup-termservice {
   display: none !important;
   visibility: hidden !important;
+}
+
+/* ===== CAPTCHA — FORCE VISIBLE + READABLE ON DARK CARD ===== */
+/* Ensures the CAPTCHA image container itself is never accidentally
+   collapsed/hidden, and gives it a light backing so a dark-text
+   CAPTCHA image doesn't blend into the black card background. */
+body.mp0 .login-box > form > div > div[align="center"]:has(img) {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+  background: #ffffff !important;
+  border: 2px solid var(--field-border) !important;
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+  margin: 4px auto 12px !important;
+  text-align: center !important;
+}
+
+body.mp0 .login-box > form > div > div[align="center"] img {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Also guard against any generic captcha classnames Zoho may render with */
+body.mp0 img[id*="captcha" i],
+body.mp0 img[class*="captcha" i],
+body.mp0 div[id*="captcha" i],
+body.mp0 div[class*="captcha" i] {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
 }
