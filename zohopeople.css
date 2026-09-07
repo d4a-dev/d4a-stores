@@ -2,6 +2,7 @@
    Zoho Reseller Sign-Up — Custom Theme
    Scope: ONLY this page (body.mp0)
    Author: Custom Dark Theme with Green Accents
+   Updated: CAPTCHA now renders on a light background
    ========================================= */
 
 body.mp0 {
@@ -425,6 +426,79 @@ body.mp0 .end_field_msg_samedomain {
 
 /* Small utility tweaks for table cells that carry alignment class */
 body.mp0 .signUp-tdAlignLeft { text-align: left; }
+
+/* =========================================
+   CAPTCHA — LIGHT / WHITE BACKGROUND FIX
+   The captcha image itself has no dark-safe
+   styling from Zoho, so it disappears against
+   the black card. We give it (and its wrapper)
+   a white panel, and keep the input field text
+   dark so it reads clearly on light captcha bg.
+   ========================================= */
+
+/* Wrapper/container around the captcha image - covers common Zoho patterns */
+body.mp0 .signupcaptcha,
+body.mp0 .captchaDiv,
+body.mp0 .za-captcha-container,
+body.mp0 .captcha-image-container,
+body.mp0 .zoho-captcha,
+body.mp0 td[class*="captcha" i],
+body.mp0 div[class*="captcha" i],
+body.mp0 span[class*="captcha" i] {
+  background: #ffffff !important;
+  border: 2px solid var(--field-border) !important;
+  border-radius: 12px !important;
+  padding: 10px 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 10px 0 !important;
+}
+
+/* The captcha image / canvas itself */
+body.mp0 img[id*="aptcha" i],
+body.mp0 img[src*="captcha" i],
+body.mp0 img[class*="aptcha" i],
+body.mp0 canvas[id*="aptcha" i],
+body.mp0 canvas[class*="aptcha" i] {
+  background: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+  display: inline-block !important;
+  min-height: 40px;
+  min-width: 120px;
+}
+
+/* Refresh icon next to the captcha - keep visible on white */
+body.mp0 .za-refresh-captcha {
+  border: 0;
+  cursor: pointer;
+  opacity: 0.85;
+}
+body.mp0 .za-refresh-captcha:hover {
+  opacity: 1;
+}
+
+/* "Enter the text" input directly tied to the captcha:
+   light background so it visually pairs with the captcha image,
+   dark text so it stays legible (overrides the generic dark .form-input look) */
+body.mp0 input[name*="captcha" i],
+body.mp0 input[id*="aptcha" i],
+body.mp0 .za-captcha-container input.form-input,
+body.mp0 .signupcaptcha input.form-input {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border: 2px solid var(--field-border) !important;
+}
+body.mp0 input[name*="captcha" i]::placeholder,
+body.mp0 input[id*="aptcha" i]::placeholder {
+  color: #6b7280 !important;
+}
+body.mp0 input[name*="captcha" i]:focus,
+body.mp0 input[id*="aptcha" i]:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.15) !important;
+}
 
 /* Responsiveness */
 @media (max-width: 768px) {
