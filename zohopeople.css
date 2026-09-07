@@ -111,6 +111,21 @@ body.mp0 select.form-input {
 
 body.mp0 .form-input::placeholder { color: var(--muted); font-weight: 400; }
 
+/* Kill Chrome's blue/yellow autofill tint so autofilled fields
+   still match the white theme (uses the box-shadow inset trick
+   since background-color can't be overridden directly on
+   autofilled inputs) */
+body.mp0 .form-input:-webkit-autofill,
+body.mp0 .form-input:-webkit-autofill:hover,
+body.mp0 .form-input:-webkit-autofill:focus,
+body.mp0 .form-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: var(--text) !important;
+  caret-color: var(--text) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 body.mp0 .form-input:hover:not(:focus) {
   border-color: var(--field-border-hover);
   background: var(--field-bg-hover);
@@ -447,24 +462,43 @@ body.mp0 span[class*="captcha" i] {
   border: 2px solid var(--field-border) !important;
   border-radius: 12px !important;
   padding: 10px 14px !important;
-  display: inline-flex !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
   align-items: center !important;
+  justify-content: flex-start !important;
   gap: 12px !important;
   margin: 10px 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important; /* don't clip the captcha image/iframe */
+  box-sizing: border-box !important;
 }
 
-/* The captcha image / canvas itself */
+/* The captcha image / canvas / iframe itself.
+   Zoho's captcha needs real room to render — the previous
+   40px x 120px minimum was clipping it down to a corner.
+   Sized here for the typical captcha widget footprint. */
 body.mp0 img[id*="aptcha" i],
 body.mp0 img[src*="captcha" i],
 body.mp0 img[class*="aptcha" i],
 body.mp0 canvas[id*="aptcha" i],
-body.mp0 canvas[class*="aptcha" i] {
+body.mp0 canvas[class*="aptcha" i],
+body.mp0 iframe[src*="captcha" i],
+body.mp0 iframe[title*="captcha" i],
+body.mp0 div[class*="captcha" i] iframe,
+body.mp0 div[class*="captcha" i] canvas,
+body.mp0 div[class*="captcha" i] img {
   background: #ffffff !important;
   border-radius: 8px !important;
-  padding: 4px !important;
-  display: inline-block !important;
-  min-height: 40px;
-  min-width: 120px;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 78px !important;
+  min-width: 130px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  flex-shrink: 0 !important;
+  transform: none !important;
 }
 
 /* Refresh icon next to the captcha */
@@ -472,6 +506,9 @@ body.mp0 .za-refresh-captcha {
   border: 0;
   cursor: pointer;
   opacity: 0.85;
+  flex-shrink: 0 !important;
+  visibility: visible !important;
+  display: inline-block !important;
 }
 body.mp0 .za-refresh-captcha:hover {
   opacity: 1;
@@ -497,6 +534,17 @@ body.mp0 input[name*="captcha" i]:focus,
 body.mp0 input[id*="aptcha" i]:focus {
   border-color: var(--primary) !important;
   box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.15) !important;
+}
+
+/* Give the text input a sensible flex share instead of forcing
+   100% width, which was pushing the actual captcha image/iframe
+   out of the visible row */
+body.mp0 .za-captcha-container input.form-input,
+body.mp0 .signupcaptcha input.form-input,
+body.mp0 div[class*="captcha" i] input.form-input {
+  width: auto !important;
+  flex: 1 1 140px !important;
+  min-width: 120px !important;
 }
 
 /* Responsiveness */
