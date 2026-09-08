@@ -2,6 +2,9 @@
    Zoho Reseller Sign-Up — Custom Theme
    Scope: ONLY this page (body.mp0)
    Author: Custom Dark Theme with Green Accents
+   FIX: CAPTCHA image no longer hidden by the
+        logo-wrapper hiding rule (see comments
+        near the bottom, marked "CAPTCHA FIX").
    ========================================= */
 
 body.mp0 {
@@ -475,9 +478,58 @@ html body.mp0 img.serviceLogo{
   visibility:hidden !important;
 }
 
-/* the wrapper that holds the CRM logo */
-html body.mp0 .login-box > form > div > div[align="center"]{
+/* ===================================================================
+   CAPTCHA FIX
+   -------------------------------------------------------------------
+   ORIGINAL RULE (root cause of the missing CAPTCHA image):
+
+     html body.mp0 .login-box > form > div > div[align="center"]{
+       display:none !important;
+     }
+
+   This hid ANY div[align="center"] at that depth, not just the CRM
+   logo wrapper it was meant for. Zoho's legacy signup markup also
+   wraps the CAPTCHA image in a div[align="center"] for centering,
+   so it was being caught by this same rule and hidden along with
+   the logo, while the sibling text input / refresh icon (which sit
+   outside that specific div) stayed visible - matching what you saw
+   in the screenshot.
+
+   FIX: scope the rule with :has() so it only ever hides the wrapper
+   that actually contains the logo image, leaving any other
+   div[align="center"] (including the CAPTCHA's) untouched.
+   =================================================================== */
+html body.mp0 .login-box > form > div > div[align="center"]:has(img.serviceLogo){
   display:none !important;
+}
+
+/* --- CAPTCHA VISIBILITY SAFETY NET ---
+   Belt-and-braces: guarantees the CAPTCHA image and its wrapper can
+   never be collapsed, clipped, or left at zero size by any other
+   rule (ours or Zoho's inline styles), without touching anything
+   else in the layout. */
+body.mp0 .za-refresh-captcha,
+body.mp0 .za-refresh-captcha img,
+body.mp0 .login-box img:not(.serviceLogo) {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+body.mp0 .login-box div[align="center"]:not(:has(img.serviceLogo)) {
+  display: block !important;
+  overflow: visible !important;
+  max-width: 100% !important;
+  margin: 8px 0 !important;
+}
+
+/* the wrapper that holds the CRM logo (kept for reference - superseded
+   by the :has()-scoped rule above, harmless to leave since img.serviceLogo
+   is already force-hidden above) */
+html body.mp0 .login-box > form > div > div[align="center"]{
+  /* intentionally left without display:none here - see CAPTCHA FIX above */
 }
 
 /* if you previously added a logo before the title, neutralize it */
