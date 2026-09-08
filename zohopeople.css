@@ -2,6 +2,7 @@
    Zoho Reseller Sign-Up — Custom Theme
    Scope: ONLY this page (body.mp0)
    Author: Custom Dark Theme with Green Accents
+   Updated: CAPTCHA visibility fix
    ========================================= */
 
 body.mp0 {
@@ -364,6 +365,10 @@ body.mp0 #LoadingImage.successLoading {
 }
 @keyframes mp0-spin { to { transform: rotate(360deg); } }
 
+/* =========================================
+   CAPTCHA SECTION
+   ========================================= */
+
 /* OTP section (when shown) */
 body.mp0 .signupotpcontainer {
   margin-top: 14px;
@@ -400,6 +405,40 @@ body.mp0 .za-submitbtn-otp .signupbtn {
   transition: transform .15s ease, box-shadow .2s ease;
 }
 body.mp0 .za-submitbtn-otp .signupbtn:hover { transform: translateY(-1px); }
+
+/* Hide Zoho's captcha refresh default sprite border (if shown) */
+body.mp0 .za-refresh-captcha { border: 0; }
+
+/* SAFETY NET: force any captcha-related element to always stay visible,
+   in case another rule elsewhere on this stylesheet (like the align="center"
+   wrapper-hiding rule below) accidentally catches it too */
+html body.mp0 img[src*="captcha" i],
+html body.mp0 img[id*="captcha" i],
+html body.mp0 img[class*="captcha" i],
+html body.mp0 [id*="captcha" i],
+html body.mp0 [class*="captcha" i] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+  overflow: visible !important;
+  margin: 0 auto 10px !important;
+}
+
+/* CAPTCHA images usually render with dark text on a plain background —
+   give the container a light backdrop so it stays legible against the
+   dark theme, and lay the image + refresh icon out cleanly */
+html body.mp0 .za-captcha-container,
+html body.mp0 [class*="captcha-wrap" i],
+html body.mp0 [id*="captcha-wrap" i] {
+  background: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
 
 /* Error states (jQuery Validate + Zoho's jqval-error spans) */
 body.mp0 .jqval-error,
@@ -449,9 +488,6 @@ body.mp0 .form-input:focus-visible {
   box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.25);
 }
 
-/* Hide Zoho's captcha refresh default sprite border (if shown) */
-body.mp0 .za-refresh-captcha { border: 0; }
-
 /* Keep the Sign Up button's inner layout tidy */
 body.mp0 .signupArea {
   display: inline-flex;
@@ -475,8 +511,9 @@ html body.mp0 img.serviceLogo{
   visibility:hidden !important;
 }
 
-/* the wrapper that holds the CRM logo */
-html body.mp0 .login-box > form > div > div[align="center"]{
+/* the wrapper that holds the CRM logo — FIXED to never match a CAPTCHA
+   wrapper that shares the same div[align="center"] structure */
+html body.mp0 .login-box > form > div > div[align="center"]:not(:has(img[src*="captcha" i])):not(:has(img[id*="captcha" i])):not([id*="captcha" i]):not([class*="captcha" i]){
   display:none !important;
 }
 
