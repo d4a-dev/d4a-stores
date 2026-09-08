@@ -525,79 +525,67 @@ body.mp0 .login-box div[align="center"]:not(:has(img.serviceLogo)) {
   margin: 8px 0 !important;
 }
 
-/* the wrapper that holds the CRM logo (kept for reference - superseded
-   by the :has()-scoped rule above, harmless to leave since img.serviceLogo
-   is already force-hidden above) */
-html body.mp0 .login-box > form > div > div[align="center"]{
-  /* intentionally left without display:none here - see CAPTCHA FIX above */
-}
-
 /* if you previously added a logo before the title, neutralize it */
 html body.mp0 .welcomeMessage::before{
   content:none !important;
 }
 
-/* --- INJECT D4A LOGO AND ZOHO PARTNER LOGO - REDUCED SPACE FROM HEADER --- */
-html body.mp0 .login-box::before{
-  content:"";
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:20px;
-  width:100%;
-  height:60px; /* REDUCED from 80px */
-  margin:0 auto 10px; /* REDUCED from 20px to 10px */
-  background:none;
-}
-
-/* D4A Logo and Zoho Partner Logo - SAME SIZE, REDUCED SPACE */
-html body.mp0 .login-box::after{
-  content:"";
-  position:absolute;
-  top:16px; /* REDUCED from 20px */
-  left:20px;
-  right:20px;
-  height:40px;
-  background-image:
-    url("https://demo.stackiz.in/d4a/logo.svg"),
-    url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png");
-  background-repeat:no-repeat, no-repeat;
-  background-position:left top, right top;
-  background-size:auto 40px, auto 40px; /* BOTH SAME SIZE - 40px height */
-  z-index:1;
-  transition: background-image 0.3s ease;
-  pointer-events: none;
-}
-
-/* Hover effect for D4A logo */
-html body.mp0 .login-box:hover::after{
-  background-image:
-    url("https://demo.stackiz.in/d4a/logo-colour.svg"),
-    url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png");
-  background-size:auto 40px, auto 40px; /* MAINTAIN SAME SIZE on hover */
-}
-
-/* Adjust login box positioning - REDUCED padding for closer logos */
+/* --- HEADER: ZOHO LOGO, CENTERED ---
+   Renders as the FIRST thing inside .login-box (before the form),
+   in normal flow — no absolute positioning needed since there's
+   nothing else competing for this space at the top of the card. */
 html body.mp0 .login-box{
   position:relative;
-  padding-top:68px; /* REDUCED from 76px */
+}
+
+html body.mp0 .login-box::before{
+  content:"";
+  display:block;
+  width:100%;
+  height:48px;
+  margin:0 auto 18px;
+  background-image:url("https://www.d4aonline.com/form/webzoho.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:auto 48px;
+}
+
+/* --- FOOTER: D4A LOGO, SMALL, CENTERED, RIGHT AFTER THE SIGN UP BUTTON ---
+   Deliberately NOT position:absolute: as the LAST thing inside
+   .login-box, it renders in normal flow directly after the form
+   (i.e. directly after the Sign Up button), so it always sits in
+   the same spot relative to the button no matter how tall the form
+   gets above it (captcha shown/hidden, validation errors, etc.). */
+html body.mp0 .login-box::after{
+  content:"";
+  display:block;
+  width:100%;
+  height:26px;
+  margin:16px auto 0;
+  background-image:url("https://demo.stackiz.in/d4a/logo.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:auto 26px;
+  transition: background-image 0.3s ease;
+}
+
+/* Hover effect for the footer D4A logo */
+html body.mp0 .login-box:hover::after{
+  background-image:url("https://demo.stackiz.in/d4a/logo-colour.svg");
+  background-size:auto 26px;
 }
 
 /* Smaller on phones - REDUCED SPACING */
 @media (max-width:480px){
   html body.mp0 .login-box::before{
-    height:30px; /* REDUCED from 35px */
-    margin-bottom:8px; /* REDUCED from 15px */
+    height:36px;
+    margin:0 auto 14px;
+    background-size:auto 36px;
   }
   html body.mp0 .login-box::after{
-    top:12px; /* REDUCED from 15px */
-    left:15px;
-    right:15px;
-    height:35px;
-    background-size:auto 35px, auto 35px; /* SAME SIZE on mobile */
-  }
-  html body.mp0 .login-box{
-    padding-top:55px; /* REDUCED from 65px */
+    height:20px;
+    margin:12px auto 0;
+    background-size:auto 20px;
   }
   
   /* checkbox visibility */
