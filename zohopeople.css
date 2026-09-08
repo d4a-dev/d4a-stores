@@ -1,28 +1,23 @@
 /* =========================================
    Zoho Reseller Sign-Up — Custom Theme
    Scope: ONLY this page (body.mp0)
-   Author: Custom LIGHT Theme with Green Accents
-   Updated: Converted from dark to white theme —
-   all field text (including captcha) fully visible
+   Author: Custom Dark Theme with Green Accents
    ========================================= */
 
 body.mp0 {
   --primary: #04A140;
   --primary-2: #026B2A;
-  --text: #1a1a1a;
-  --text-muted: #4a5568;
-  --muted: #6b7280;
-  --field-bg: #ffffff;
-  --field-bg-hover: #f3f4f6;
-  --field-border: #d1d5db;
-  --field-border-hover: #9ca3af;
-  --card-bg: #ffffff;
+  --text: #ffffff;
+  --text-muted: #e2e8f0;
+  --muted: #a0aec0;
+  --field-border: #374151;
+  --field-border-hover: #4b5563;
   --danger: #e53e3e;
 
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
-  background: #f3f4f6;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,13 +43,14 @@ body.mp0 .mTop {
 /* Card container - INCREASED WIDTH */
 body.mp0 .login-box {
   width: 100%;
-  max-width: 540px;
+  max-width: 540px; /* INCREASED from 480px */
   margin-top: 56px;
-  background: var(--card-bg);
-  border: 1px solid #e5e7eb;
+  background: #000000;
+  border: 1px solid var(--primary);
   border-radius: 20px;
-  padding: 42px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10);
+  padding: 42px; /* INCREASED from 36px */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
 }
 
 /* Logo block */
@@ -72,12 +68,12 @@ body.mp0 .signupTable td {
   padding: 8px 0;
 }
 
-/* Title */
+/* Title - REDUCED margin-bottom to decrease space from logos */
 body.mp0 .welcomeMessage {
   font-size: 28px;
   font-weight: 800;
   text-align: center;
-  margin: 0 0 22px;
+  margin: 0 0 22px; /* CHANGED from 6px 0 22px to reduce space from logos */
   color: transparent;
   background: linear-gradient(135deg, var(--primary), var(--primary-2));
   -webkit-background-clip: text;
@@ -85,14 +81,14 @@ body.mp0 .welcomeMessage {
 }
 
 /* Common layout helpers seen in Zoho markup */
-body.mp0 .poRel,
+body.mp0 .poRel, 
 body.mp0 .rel { position: relative; }
 body.mp0 .fr { float: right; }
 body.mp0 .fl { float: left; }
 body.mp0 .disBlock { display:block; }
-body.mp0 .zs-ml34 { margin-left: 0; }
+body.mp0 .zs-ml34 { margin-left: 0; } /* neutralize unwanted left margin */
 
-/* Form fields - LIGHT THEME, DARK TEXT FOR FULL VISIBILITY */
+/* Form fields - IMPROVED SIZING */
 body.mp0 .form-input,
 body.mp0 input.sgnemail,
 body.mp0 select.form-input {
@@ -102,33 +98,18 @@ body.mp0 select.form-input {
   border-radius: 12px;
   font-size: 16px;
   line-height: 1.2;
-  background: var(--field-bg);
+  background: #1a1a1a;
   color: var(--text);
   transition: border-color .2s ease, box-shadow .2s ease, transform .15s ease, background .2s ease;
   appearance: none;
-  box-sizing: border-box !important;
+  box-sizing: border-box !important; /* FORCE proper box sizing */
 }
 
 body.mp0 .form-input::placeholder { color: var(--muted); font-weight: 400; }
 
-/* Kill Chrome's blue/yellow autofill tint so autofilled fields
-   still match the white theme (uses the box-shadow inset trick
-   since background-color can't be overridden directly on
-   autofilled inputs) */
-body.mp0 .form-input:-webkit-autofill,
-body.mp0 .form-input:-webkit-autofill:hover,
-body.mp0 .form-input:-webkit-autofill:focus,
-body.mp0 .form-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
-  box-shadow: 0 0 0 1000px #ffffff inset !important;
-  -webkit-text-fill-color: var(--text) !important;
-  caret-color: var(--text) !important;
-  transition: background-color 9999s ease-in-out 0s;
-}
-
 body.mp0 .form-input:hover:not(:focus) {
   border-color: var(--field-border-hover);
-  background: var(--field-bg-hover);
+  background: #2a2a2a;
 }
 
 body.mp0 .form-input:focus {
@@ -168,40 +149,40 @@ body.mp0 #show-password {
 }
 body.mp0 #show-password:hover { opacity: .85; }
 
-/* Country / State selects with custom chevron - DARK ARROW FOR LIGHT BG */
+/* Country / State selects with custom chevron - IMPROVED VISIBILITY AND CENTERING */
 body.mp0 .za-country-container-arrow select.form-input,
 body.mp0 .za-state-container-arrow select.form-input,
 body.mp0 select.form-input.countryCnt.za-country-select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%234a5568' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 14px center;
   background-size: 18px;
   padding-right: 50px !important;
   padding-left: 16px !important;
   cursor: pointer;
-  text-align: center !important;
-  text-align-last: center !important;
-  font-size: 15px !important;
+  text-align: center !important; /* CENTER the text */
+  text-align-last: center !important; /* CENTER selected option */
+  font-size: 15px !important; /* SLIGHTLY smaller font for better fit */
   font-weight: 500 !important;
   overflow: visible !important;
   text-overflow: ellipsis;
   white-space: nowrap;
-  height: auto !important;
-  min-height: 54px !important;
-  line-height: 1.4 !important;
+  height: auto !important; /* FIX HEIGHT ISSUE - allow natural height */
+  min-height: 54px !important; /* Ensure minimum clickable area */
+  line-height: 1.4 !important; /* Better line height for text visibility */
 }
 
-/* Option styling with centered text - LIGHT BG, DARK TEXT */
-body.mp0 select.form-input option {
-  background: #ffffff !important;
+/* BETTER option styling with centered text */
+body.mp0 select.form-input option { 
+  background: #1a1a1a !important;
   color: var(--text) !important;
   padding: 12px 16px !important;
-  text-align: center !important;
+  text-align: center !important; /* CENTER options in dropdown */
   font-size: 14px !important;
   font-weight: 400 !important;
 }
 
-/* TOS + Newsletter */
+/* TOS + Newsletter - IMPROVED CHECKBOX VISIBILITY AND FUNCTIONALITY */
 body.mp0 .za-tos-container {
   display: flex !important;
   align-items: flex-start !important;
@@ -221,7 +202,8 @@ body.mp0 tr.za-newsletter-container {
   padding: 0 !important;
 }
 
-/* CUSTOM CHECKBOX STYLING */
+/* CUSTOM CHECKBOX STYLING - FIX FOR ZOHO'S CUSTOM CHECKBOX STRUCTURE */
+/* Target the actual checkbox input */
 body.mp0 .za-tos-container input.za-tos[type="checkbox"] {
   width: 20px !important;
   height: 20px !important;
@@ -236,7 +218,7 @@ body.mp0 .za-tos-container input.za-tos[type="checkbox"] {
   visibility: visible !important;
   display: inline-block !important;
   appearance: none !important;
-  background: #ffffff !important;
+  background: #2a2a2a !important;
   border: 2px solid var(--field-border) !important;
   border-radius: 4px !important;
   vertical-align: top !important;
@@ -271,7 +253,7 @@ body.mp0 .za-tos-container span#signup-termservice {
 /* Enhanced checkbox states */
 body.mp0 .za-tos-container input.za-tos[type="checkbox"]:hover {
   border-color: var(--primary) !important;
-  background: #f3f4f6 !important;
+  background: #3a3a3a !important;
   transform: scale(1.05) !important;
 }
 
@@ -299,7 +281,7 @@ body.mp0 .za-tos-container label.sign_agree {
   padding: 0 !important;
 }
 
-/* ENSURE LABELS ARE CLICKABLE */
+/* ENSURE LABELS ARE CLICKABLE - UPDATED FOR ZOHO STRUCTURE */
 body.mp0 .sign_agree,
 body.mp0 .news-signup {
   font-size: 14px !important;
@@ -319,15 +301,15 @@ body.mp0 .news-signup a {
   font-weight: 600 !important;
 }
 body.mp0 .sign_agree a:hover,
-body.mp0 .news-signup a:hover {
-  text-decoration: underline !important;
+body.mp0 .news-signup a:hover { 
+  text-decoration: underline !important; 
 }
 
 /* Fix the container layouts */
 body.mp0 .za-tos-container {
   display: flex !important;
   align-items: flex-start !important;
-  gap: 0 !important;
+  gap: 0 !important; /* Remove gap since checkbox is now inside label */
   margin: 16px 0 8px !important;
 }
 
@@ -444,109 +426,6 @@ body.mp0 .end_field_msg_samedomain {
 /* Small utility tweaks for table cells that carry alignment class */
 body.mp0 .signUp-tdAlignLeft { text-align: left; }
 
-/* =========================================
-   CAPTCHA — now naturally matches the light
-   theme. Text stays dark and fully visible;
-   panel border matches the rest of the form.
-   ========================================= */
-
-body.mp0 .signupcaptcha,
-body.mp0 .captchaDiv,
-body.mp0 .za-captcha-container,
-body.mp0 .captcha-image-container,
-body.mp0 .zoho-captcha,
-body.mp0 td[class*="captcha" i],
-body.mp0 div[class*="captcha" i],
-body.mp0 span[class*="captcha" i] {
-  background: #ffffff !important;
-  border: 2px solid var(--field-border) !important;
-  border-radius: 12px !important;
-  padding: 10px 14px !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 12px !important;
-  margin: 10px 0 !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: visible !important; /* don't clip the captcha image/iframe */
-  box-sizing: border-box !important;
-}
-
-/* The captcha image / canvas / iframe itself.
-   Zoho's captcha needs real room to render — the previous
-   40px x 120px minimum was clipping it down to a corner.
-   Sized here for the typical captcha widget footprint. */
-body.mp0 img[id*="aptcha" i],
-body.mp0 img[src*="captcha" i],
-body.mp0 img[class*="aptcha" i],
-body.mp0 canvas[id*="aptcha" i],
-body.mp0 canvas[class*="aptcha" i],
-body.mp0 iframe[src*="captcha" i],
-body.mp0 iframe[title*="captcha" i],
-body.mp0 div[class*="captcha" i] iframe,
-body.mp0 div[class*="captcha" i] canvas,
-body.mp0 div[class*="captcha" i] img {
-  background: #ffffff !important;
-  border-radius: 8px !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  min-height: 78px !important;
-  min-width: 130px !important;
-  max-width: 100% !important;
-  height: auto !important;
-  flex-shrink: 0 !important;
-  transform: none !important;
-}
-
-/* Refresh icon next to the captcha */
-body.mp0 .za-refresh-captcha {
-  border: 0;
-  cursor: pointer;
-  opacity: 0.85;
-  flex-shrink: 0 !important;
-  visibility: visible !important;
-  display: inline-block !important;
-}
-body.mp0 .za-refresh-captcha:hover {
-  opacity: 1;
-}
-
-/* "Enter the text" input tied to the captcha —
-   white background, DARK text so it's clearly
-   visible and consistent with the rest of the
-   light theme form fields */
-body.mp0 input[name*="captcha" i],
-body.mp0 input[id*="aptcha" i],
-body.mp0 .za-captcha-container input.form-input,
-body.mp0 .signupcaptcha input.form-input {
-  background: #ffffff !important;
-  color: #1a1a1a !important;
-  border: 2px solid var(--field-border) !important;
-}
-body.mp0 input[name*="captcha" i]::placeholder,
-body.mp0 input[id*="aptcha" i]::placeholder {
-  color: #6b7280 !important;
-}
-body.mp0 input[name*="captcha" i]:focus,
-body.mp0 input[id*="aptcha" i]:focus {
-  border-color: var(--primary) !important;
-  box-shadow: 0 0 0 3px rgba(4, 161, 64, 0.15) !important;
-}
-
-/* Give the text input a sensible flex share instead of forcing
-   100% width, which was pushing the actual captcha image/iframe
-   out of the visible row */
-body.mp0 .za-captcha-container input.form-input,
-body.mp0 .signupcaptcha input.form-input,
-body.mp0 div[class*="captcha" i] input.form-input {
-  width: auto !important;
-  flex: 1 1 140px !important;
-  min-width: 120px !important;
-}
-
 /* Responsiveness */
 @media (max-width: 768px) {
   body.mp0 .mTop {
@@ -554,7 +433,7 @@ body.mp0 div[class*="captcha" i] input.form-input {
     padding: 8px 14px;
   }
   body.mp0 .login-box {
-    padding: 35px 22px;
+    padding: 35px 22px; /* INCREASED mobile padding */
     margin: 20px 10px;
     margin-top: 78px;
     max-width: 100%;
@@ -606,7 +485,7 @@ html body.mp0 .welcomeMessage::before{
   content:none !important;
 }
 
-/* --- INJECT D4A LOGO AND ZOHO PARTNER LOGO --- */
+/* --- INJECT D4A LOGO AND ZOHO PARTNER LOGO - REDUCED SPACE FROM HEADER --- */
 html body.mp0 .login-box::before{
   content:"";
   display:flex;
@@ -614,61 +493,61 @@ html body.mp0 .login-box::before{
   justify-content:center;
   gap:20px;
   width:100%;
-  height:60px;
-  margin:0 auto 10px;
+  height:60px; /* REDUCED from 80px */
+  margin:0 auto 10px; /* REDUCED from 20px to 10px */
   background:none;
 }
 
-/* D4A Logo and Zoho Partner Logo - SAME SIZE */
+/* D4A Logo and Zoho Partner Logo - SAME SIZE, REDUCED SPACE */
 html body.mp0 .login-box::after{
   content:"";
   position:absolute;
-  top:16px;
+  top:16px; /* REDUCED from 20px */
   left:20px;
   right:20px;
   height:40px;
   background-image:
-    url("https://demo.stackiz.in/d4a/logo-colour.svg"),
+    url("https://demo.stackiz.in/d4a/logo.svg"),
     url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png");
   background-repeat:no-repeat, no-repeat;
   background-position:left top, right top;
-  background-size:auto 40px, auto 40px;
+  background-size:auto 40px, auto 40px; /* BOTH SAME SIZE - 40px height */
   z-index:1;
   transition: background-image 0.3s ease;
   pointer-events: none;
 }
 
-/* Hover effect for D4A logo (kept subtle since bg is now white) */
+/* Hover effect for D4A logo */
 html body.mp0 .login-box:hover::after{
   background-image:
     url("https://demo.stackiz.in/d4a/logo-colour.svg"),
     url("https://www.d4aonline.com/files/Logo/Zoho%20advanced_partner%20Logo.png");
-  background-size:auto 40px, auto 40px;
+  background-size:auto 40px, auto 40px; /* MAINTAIN SAME SIZE on hover */
 }
 
-/* Adjust login box positioning */
+/* Adjust login box positioning - REDUCED padding for closer logos */
 html body.mp0 .login-box{
   position:relative;
-  padding-top:68px;
+  padding-top:68px; /* REDUCED from 76px */
 }
 
-/* Smaller on phones */
+/* Smaller on phones - REDUCED SPACING */
 @media (max-width:480px){
   html body.mp0 .login-box::before{
-    height:30px;
-    margin-bottom:8px;
+    height:30px; /* REDUCED from 35px */
+    margin-bottom:8px; /* REDUCED from 15px */
   }
   html body.mp0 .login-box::after{
-    top:12px;
+    top:12px; /* REDUCED from 15px */
     left:15px;
     right:15px;
     height:35px;
-    background-size:auto 35px, auto 35px;
+    background-size:auto 35px, auto 35px; /* SAME SIZE on mobile */
   }
   html body.mp0 .login-box{
-    padding-top:55px;
+    padding-top:55px; /* REDUCED from 65px */
   }
-
+  
   /* checkbox visibility */
   body.mp0 .za-tos-container input[type="checkbox"] {
     width: 24px !important;
